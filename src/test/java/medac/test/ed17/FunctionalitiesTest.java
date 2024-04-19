@@ -1,3 +1,5 @@
+package medac.test.ed17;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -8,11 +10,18 @@ import java.util.HashSet;
 
 import org.junit.jupiter.api.Test;
 
+import medac.ed17.Functionalities;
+
 public class FunctionalitiesTest {
 	Functionalities func = new Functionalities();
 
 	@Test
 	void testGetSuma() {
+		assertEquals(6, func.getSuma(3, 3));
+	}
+	
+	@Test
+	void testGetDivision() {
 		assertEquals(6, func.getDivision(3, 3));
 	}
 

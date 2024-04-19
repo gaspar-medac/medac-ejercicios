@@ -1,4 +1,5 @@
 
+
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
@@ -28,7 +29,4 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-    - run: mvn -B package --file pom.xml | tee mvn_results.txt; cat mvn_results.txt | tr -d '\000' | grep "Java Code Coverage" > /tmp/coverage.txt
-    - name: Coverage
-      run: |
-          cat /tmp/coverage.txt
+    - run: mvn test -B package --file pom.xml
