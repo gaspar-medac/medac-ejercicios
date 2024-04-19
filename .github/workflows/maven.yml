@@ -26,7 +26,7 @@ jobs:
       uses: actions/setup-java@v4.2.1
       with:
         java-version: '21'
-        distribution: 'oracle'
+        distribution: 'temurin'
     - name: Build with Maven
       run: mvn -B package --file pom.xml | tee mvn_results.txt; cat mvn_results.txt | tr -d '\000' | grep "Java Code Coverage" > /tmp/coverage.txt
     - name: Coverage
