@@ -30,3 +30,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - run: mvn clean install
+
