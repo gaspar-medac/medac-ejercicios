@@ -17,6 +17,11 @@ public class FunctionalitiesTest {
 
 	@Test
 	void testGetSuma() {
+		assertEquals(6, func.getSuma(3, 3));
+	}
+	
+	@Test
+	void testGetDivision() {
 		assertEquals(6, func.getDivision(3, 3));
 	}
 
