@@ -29,7 +29,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml | tee mvn_results.txt; cat mvn_results.txt | tr -d '\000' | grep "Java Code Coverage" > /tmp/coverage.txt
-    - name: Coverage
-      run: |
-          cat /tmp/coverage.txt
+      run: mvn -B package --file pom.xml
