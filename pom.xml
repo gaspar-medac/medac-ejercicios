@@ -20,6 +20,13 @@
 			<version>5.10.2</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.5.0</version> <!-- Puedes verificar la última versión en
+			Maven Central -->
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
