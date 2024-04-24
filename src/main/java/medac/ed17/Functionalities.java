@@ -1,6 +1,5 @@
 package medac.ed17;
 
-import java.util.Dictionary;
 import java.util.HashSet;
 
 public class Functionalities {
@@ -125,8 +124,6 @@ public class Functionalities {
 
         double notaFinal = (notaTeorico * 0.4) + (notaPractica * 0.6);
 
-        if (notaFinal < 5) return false;
-
-        return true;
+        return !(notaFinal < 5);
     }
 }
