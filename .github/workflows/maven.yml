@@ -30,7 +30,3 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - run: mvn test -B package --file pom.xml
-
-    - name: greeting-action
-      uses: mertssmnoglu/greeting-action@v0.0.1-beta2
-          
