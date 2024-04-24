@@ -1,6 +1,6 @@
 package medac.ed17;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Functionalities {	
 	/**
@@ -105,7 +105,7 @@ public class Functionalities {
 	 * @param size      veces en las que se tiene que añadir el elemento
 	 * @return
 	 */
-	public void actualizarColeccion(HashSet<String> coleccion, String elemento, int size) {
+	public void actualizarColeccion(ArrayList<String> coleccion, String elemento, int size) {
 		for(int i = 0; i < size; i++){
 			coleccion.add(elemento);
 		}

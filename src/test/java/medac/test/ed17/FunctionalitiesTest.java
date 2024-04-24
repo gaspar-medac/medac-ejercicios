@@ -1,5 +1,6 @@
 package medac.test.ed17;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import org.junit.jupiter.api.Test;
@@ -67,7 +68,7 @@ public class FunctionalitiesTest {
 
 	@Test
 	void testActualizarColeccionCon1() {
-		HashSet<String> setTest = new HashSet<String>();
+		ArrayList<String> setTest = new ArrayList<String>();
 		String elemento = "a";
 		func.actualizarColeccion(setTest, elemento, 1);
 		assertEquals(1, setTest.size());
@@ -75,7 +76,7 @@ public class FunctionalitiesTest {
 
 	@Test
 	void testActualizarColeccionCon3() {
-		HashSet<String> setTest = new HashSet<String>();
+		ArrayList<String> setTest = new ArrayList<String>();
 		String elemento = "a";
 		func.actualizarColeccion(setTest, elemento, 3);
 		assertEquals(3, setTest.size());

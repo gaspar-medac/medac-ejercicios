@@ -1,5 +1,5 @@
 
-ˆ
-java:S1319l"fThe type of "coleccion" should be an interface such as "Set" rather than the implementation "HashSet".(¤ˆêáşÿÿÿÿ8õüÏöğ1
+†
+java:S1319l"iThe type of "coleccion" should be an interface such as "List" rather than the implementation "ArrayList".(¿Ä–8€ Àøğ1
 L
-java:S1197O"*Move the array designators [] to the type.(ë×©Óÿÿÿÿÿ8ˆıÏöğ1
+java:S1197O"*Move the array designators [] to the type.(ë×©Óÿÿÿÿÿ8§á¸øğ1
