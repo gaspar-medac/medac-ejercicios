@@ -1,6 +1,5 @@
 package medac.ed17;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Functionalities {	
@@ -32,8 +31,12 @@ public class Functionalities {
 	 * @throws ArithmeticException Devuelve una excepción en el caso de que se
 	 *                             divida entre 0.
 	 */
-	public double getDivision(double divisor, double dividendo) throws ArithmeticException {
-		return dividendo + divisor; // ArithmeticException
+	public double getDivision(double dividendo, double divisor) throws ArithmeticException {
+		if(divisor == 0){
+			throw new ArithmeticException("No se puede dividir entre 0 pillín");
+		}
+			return dividendo / divisor; // ArithmeticException
+
 	}
 
 	/**
@@ -51,8 +54,17 @@ public class Functionalities {
 	 * @param o objeto que se le pasa para convertir a int
 	 * @return un número, si no puede convertirlo, devuelve 0.
 	 */
-	public int convertirAInt(Object o) {
-		return (Integer) o;
+	public int convertirAInt(Object o){
+		if(!(o instanceof Integer) && !(o instanceof String)){
+			return Integer.valueOf(o.toString());
+		}else if (o instanceof Integer){
+			return (int) o;
+		}else{
+			return 0;
+		}
+
+
+
 	}
 
 	/**
@@ -63,21 +75,41 @@ public class Functionalities {
 	 * @param size
 	 * @return
 	 */
-	public char[] getLineaAsteriscos(int size) {
-		return null;
- 	}
+	public String[] getLineaAsteriscos(int size) {
+		String linea[];
+		if(size > 0){
+			linea = new String[size];
+			for (int i = 0; i < linea.length; i++) {
+				linea[i] = "🥦";
+			}
+
+		}else if(size < 0){
+			linea = new String[Math.abs(size)];
+			for (int i = 0; i < linea.length; i++) {
+				linea[i] = "🌶";
+			}
+
+		}else {
+			linea = new String[]{"🍊", "🍊", "🍊", "🍊", "🍊"};
+		}
+		return linea;
+	}
 
 	/**
-	 * Actualiza la coleccion. 
-	 * Para actualizarla, añadirá el elemento que se pasa por parámetro tantas veces como se le indique, 
+	 * Actualiza la coleccion.
+	 * Para actualizarla, añadirá el elemento que se pasa por parámetro tantas veces como se le indique,
 	 * que también viene por parámetro
+	 *
 	 * @param coleccion Coleccion a actualizar
-	 * @param elemento elemento a añadir
-	 * @param size veces en las que se tiene que añadir el elemento
+	 * @param elemento  elemento a añadir
+	 * @param size      veces en las que se tiene que añadir el elemento
 	 * @return
 	 */
-	public void actualizarColeccion(HashSet<String> coleccion, String elemento, int size ) {
-	}
+	public void actualizarColeccion(HashSet<String> coleccion, String elemento, int size) {
+		for(int i = 0; i < size; i++){
+			coleccion.add(elemento);
+		}
+    }
 
 	public int method8() {
 		int[] arr = new int[1];

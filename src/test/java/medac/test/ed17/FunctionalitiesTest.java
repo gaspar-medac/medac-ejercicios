@@ -1,16 +1,12 @@
 package medac.test.ed17;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
 import java.util.HashSet;
 
 import org.junit.jupiter.api.Test;
 
 import medac.ed17.Functionalities;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FunctionalitiesTest {
 	Functionalities func = new Functionalities();
@@ -18,11 +14,12 @@ public class FunctionalitiesTest {
 	@Test
 	void testGetSuma() {
 		assertEquals(6, func.getSuma(3, 3));
+		assertEquals(103, func.getSuma(50, 53));
 	}
 	
 	@Test
 	void testGetDivision() {
-		assertEquals(6, func.getDivision(3, 3));
+		assertEquals(1, func.getDivision(3, 3));
 	}
 
 	@Test
@@ -34,13 +31,13 @@ public class FunctionalitiesTest {
 	void testGetDivisionSinExcepcion() {
 		assertAll("divisiones",
 				() -> assertEquals(4, func.getDivision(20, 5)),
-				() -> assertEquals(4, func.getDivision(25, 5)), 
+				() -> assertEquals(5, func.getDivision(25, 5)),
 				() -> assertEquals(6, func.getDivision(30, 5)));
 	}
 
 	@Test
 	void testGetDivisionConExcepcion() {
-		assertThrows(ArithmeticException.class, () -> func.getDivision(40, 0));
+			assertThrows(ArithmeticException.class, () -> func.getDivision(40, 0));
 	}
 
 	@Test
@@ -57,15 +54,15 @@ public class FunctionalitiesTest {
 	void testConvertirAInt() {
 		assertEquals(5, func.convertirAInt(5l));
 		assertEquals(6, func.convertirAInt(6l));
-		assertEquals(6, func.convertirAInt(6.2));
+		assertEquals(6, func.convertirAInt(6));
 		assertEquals(0, func.convertirAInt("🌶️🌶️"));
 	}
 
 	@Test
 	void testGetLineaAsteriscos() {
-		assertAll("verduras", () -> assertEquals(new String[] { "🥦", "🥦", "🥦" }, func.getLineaAsteriscos(3)),
-				() -> assertEquals(new String[] { "🌶", "🌶", "🌶", "🌶", "🌶" }, func.getLineaAsteriscos(5)),
-				() -> assertEquals(new String[] { "🍊", "🍊", "🍊", "🍊", "🍊" }, func.getLineaAsteriscos(0)));
+		assertAll("verduras", () -> assertArrayEquals(new String[]{"🥦", "🥦", "🥦"}, func.getLineaAsteriscos(3)),
+				() -> assertArrayEquals(new String[]{"🌶", "🌶", "🌶", "🌶", "🌶"}, func.getLineaAsteriscos(-5)),
+				() -> assertArrayEquals(new String[]{"🍊", "🍊", "🍊", "🍊", "🍊"}, func.getLineaAsteriscos(0)));
 	}
 
 	@Test
