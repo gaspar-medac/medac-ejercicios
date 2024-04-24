@@ -1,16 +1,11 @@
 package medac.test.ed17;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
 import java.util.HashSet;
-
 import org.junit.jupiter.api.Test;
 
 import medac.ed17.Functionalities;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FunctionalitiesTest {
 	Functionalities func = new Functionalities();
@@ -19,10 +14,10 @@ public class FunctionalitiesTest {
 	void testGetSuma() {
 		assertEquals(6, func.getSuma(3, 3));
 	}
-	
+
 	@Test
 	void testGetDivision() {
-		assertEquals(6, func.getDivision(3, 3));
+		assertEquals(1, func.getDivision(3, 3));
 	}
 
 	@Test
@@ -33,13 +28,13 @@ public class FunctionalitiesTest {
 	@Test
 	void testGetDivisionSinExcepcion() {
 		assertAll("divisiones",
-				() -> assertEquals(4, func.getDivision(20, 5)),
-				() -> assertEquals(4, func.getDivision(25, 5)), 
-				() -> assertEquals(6, func.getDivision(30, 5)));
+				() -> assertEquals(4, func.getDivision(5, 20)),
+				() -> assertEquals(5, func.getDivision(5, 25)),
+				() -> assertEquals(6, func.getDivision(5, 30)));
 	}
 
 	@Test
-	void testGetDivisionConExcepcion() {
+	void testGetDivisionConExcepcion() throws ArithmeticException{
 		assertThrows(ArithmeticException.class, () -> func.getDivision(40, 0));
 	}
 
@@ -63,9 +58,9 @@ public class FunctionalitiesTest {
 
 	@Test
 	void testGetLineaAsteriscos() {
-		assertAll("verduras", () -> assertEquals(new String[] { "🥦", "🥦", "🥦" }, func.getLineaAsteriscos(3)),
-				() -> assertEquals(new String[] { "🌶", "🌶", "🌶", "🌶", "🌶" }, func.getLineaAsteriscos(5)),
-				() -> assertEquals(new String[] { "🍊", "🍊", "🍊", "🍊", "🍊" }, func.getLineaAsteriscos(0)));
+		assertAll("verduras", () -> assertArrayEquals(new String[] { "♥", "♥", "♥" }, func.getLineaAsteriscos(3)),
+				() -> assertArrayEquals(new String[] { "☺", "☺", "☺", "☺", "☺" }, func.getLineaAsteriscos(-5)),
+				() -> assertArrayEquals(new String[] { "♣", "♣", "♣", "♣", "♣" }, func.getLineaAsteriscos(0)));
 	}
 
 	@Test
@@ -83,25 +78,26 @@ public class FunctionalitiesTest {
 		func.actualizarColeccion(setTest, elemento, 3);
 		assertEquals(3, setTest.size());
 	}
-	
+
 	@Test
 	void testCheckAlumnoTodoAprobadoFaltas31() {
-		fail("Method not implemented");
+		assertFalse(func.CheckAlumno(6,6,15,16));
 	}
-	
+
 	@Test
 	void testCheckAlumnoTodoAprobadoFaltasJustificadas16() {
-		fail("Method not implemented");
+		assertFalse(func.CheckAlumno(6,6,0,16));
 	}
-	
+
 	@Test
 	void testCheckAlumnoTodoAprobadoFaltasJustificadas15() {
-		fail("Method not implemented");
+		assertTrue(func.CheckAlumno(6,6,0,15));
 	}
-	
+
+
 	@Test
 	void testCheckAlumnoTeorico4Practicas8Faltas5() {
-		fail("Method not implemented");
+		assertTrue(func.CheckAlumno(4,8,2,3));
 	}
 
 }

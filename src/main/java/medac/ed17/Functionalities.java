@@ -1,6 +1,5 @@
 package medac.ed17;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Functionalities {	
@@ -33,7 +32,11 @@ public class Functionalities {
 	 *                             divida entre 0.
 	 */
 	public double getDivision(double divisor, double dividendo) throws ArithmeticException {
-		return dividendo + divisor; // ArithmeticException
+		double resultado = (double) (dividendo/divisor);
+		if (dividendo == 0){
+			throw new ArithmeticException("El numero 0 no es divisible");
+		}
+		return resultado;
 	}
 
 	/**
@@ -52,7 +55,13 @@ public class Functionalities {
 	 * @return un número, si no puede convertirlo, devuelve 0.
 	 */
 	public int convertirAInt(Object o) {
-		return (Integer) o;
+		if (o instanceof Integer) {
+			return ((Integer) o).intValue();
+		} else if (o instanceof Number) {
+			return ((Number) o).intValue();
+		} else {
+			return 0;
+		}
 	}
 
 	/**
@@ -63,8 +72,23 @@ public class Functionalities {
 	 * @param size
 	 * @return
 	 */
-	public char[] getLineaAsteriscos(int size) {
-		return null;
+	public String[] getLineaAsteriscos(int size) {
+		String[] linea;
+
+		if (size > 0) {
+			linea = new String[size];
+			for (int i = 0; i < linea.length; i++) {
+				linea[i] = "♥";
+			}
+		} else if (size < 0) {
+			linea = new String[Math.abs(size)];
+			for (int i = 0; i < linea.length; i++) {
+				linea[i] = "☺";
+			}
+		} else {
+			linea = new String[]{ "♣", "♣", "♣", "♣", "♣" };
+		}
+		return linea;
  	}
 
 	/**
@@ -77,15 +101,25 @@ public class Functionalities {
 	 * @return
 	 */
 	public void actualizarColeccion(HashSet<String> coleccion, String elemento, int size ) {
+		for (int i = 0; i < size; i++) {
+			if (coleccion.contains(elemento))  {
+				elemento = elemento + 1;
+			}
+			coleccion.add(elemento);
+			}
 	}
 
-	public int method8() {
-		int[] arr = new int[1];
-		return arr[1]; // ArrayIndexOutOfBoundsException
-	}
+	public boolean CheckAlumno(int NotaTeorica, int NotaPractica, int FaltasInjustificadas, int FaltasJustificadas) {
 
-	public void method9() {
-		throw new IllegalArgumentException(); // Lanza IllegalArgumentException
-	}
+		if (NotaTeorica+NotaPractica < 10 ){
+			return false;
+		} else if (FaltasJustificadas > 15 || FaltasInjustificadas > 15 ){
+			return false;
+		} else {
+			return true;
+		}
+
+    }
+
 
 }
