@@ -111,6 +111,22 @@ public class Functionalities {
 		}
     }
 
+	public boolean aprobado(boolean aprobado, int faltasJustificadas, int totalFaltas){
+		int faltas = faltasJustificadas - totalFaltas;
+		double media = (4*0.3)+(0.7*8)+(0.1*5);
+		if (media > 5){
+			aprobado = true;
+		}else{
+			aprobado = false;
+		}
+		boolean trimestreAprobado;
+		if(aprobado == true && faltas <= 30 && faltasJustificadas <= 15){
+			return trimestreAprobado = true;
+		}else{
+			return false;
+		}
+	}
+
 	public int method8() {
 		int[] arr = new int[1];
 		return arr[1]; // ArrayIndexOutOfBoundsException

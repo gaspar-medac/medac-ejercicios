@@ -84,22 +84,22 @@ public class FunctionalitiesTest {
 	
 	@Test
 	void testCheckAlumnoTodoAprobadoFaltas31() {
-		fail("Method not implemented");
+		assertEquals(false, func.aprobado(true, 0, 31));
 	}
 	
 	@Test
 	void testCheckAlumnoTodoAprobadoFaltasJustificadas16() {
-		fail("Method not implemented");
+		assertEquals(false, func.aprobado(true, 16, 16 ));
 	}
 	
 	@Test
 	void testCheckAlumnoTodoAprobadoFaltasJustificadas15() {
-		fail("Method not implemented");
+		assertEquals(true, func.aprobado(true,15, 15));
 	}
 	
 	@Test
 	void testCheckAlumnoTeorico4Practicas8Faltas5() {
-		fail("Method not implemented");
+		assertEquals(true, func.aprobado(false, 0,5));
 	}
 
 }
