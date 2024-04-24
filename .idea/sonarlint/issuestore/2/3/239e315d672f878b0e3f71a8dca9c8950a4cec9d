@@ -1,17 +1,17 @@
 
 P
-java:S1121|".Extract the assignment out of this expression.(ö³¤õÿÿÿÿÿ8÷Êõÿğ1
+java:S1121}".Extract the assignment out of this expression.(ö³¤õÿÿÿÿÿ8÷Êõÿğ1
 †
 java:S1319l"iThe type of "coleccion" should be an interface such as "List" rather than the implementation "ArrayList".(¿Ä–8øÊõÿğ1
 b
-java:S1226v"EIntroduce a new variable instead of reusing the parameter "aprobado".(°¡§±8¸ª€ñ1
+java:S1226w"EIntroduce a new variable instead of reusing the parameter "aprobado".(°¡§±8¸ª€ñ1
 g
-java:S1226x"EIntroduce a new variable instead of reusing the parameter "aprobado".(šÕëşÿÿÿÿ8¸ª€ñ1
+java:S1226y"EIntroduce a new variable instead of reusing the parameter "aprobado".(šÕëşÿÿÿÿ8¸ª€ñ1
 L
 java:S1197O"*Move the array designators [] to the type.(ë×©Óÿÿÿÿÿ8ŠËõÿğ1
 g
-java:S1854|"ERemove this useless assignment to local variable "trimestreAprobado".(ö³¤õÿÿÿÿÿ8¼ëœ€ñ1
+java:S1854}"ERemove this useless assignment to local variable "trimestreAprobado".(ö³¤õÿÿÿÿÿ8ÀÊ«€ñ1
 X
-java:S1481z"6Remove this unused "trimestreAprobado" local variable.(·™ÍÁøÿÿÿÿ8ŒËõÿğ1
+java:S1481s"6Remove this unused "trimestreAprobado" local variable.(·™ÍÁøÿÿÿÿ8ÁÊ«€ñ1
 I
-java:S1125{"'Remove the unnecessary boolean literal.(ÜØÑüÿÿÿÿ8Ëõÿğ1
+java:S1125|"'Remove the unnecessary boolean literal.(ÜØÑüÿÿÿÿ8Ëõÿğ1
