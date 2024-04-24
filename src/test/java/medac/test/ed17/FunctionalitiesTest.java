@@ -17,7 +17,7 @@ public class FunctionalitiesTest {
 
     @Test
     void testGetDivision() {
-        assertEquals(6, func.getDivision(3, 3));
+        assertEquals(1, func.getDivision(3, 3));
     }
 
     @Test
