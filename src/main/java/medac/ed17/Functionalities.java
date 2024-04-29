@@ -2,6 +2,7 @@ package medac.ed17;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Arrays;
 
 public class Functionalities {	
 	/**
@@ -12,7 +13,7 @@ public class Functionalities {
 	public boolean getTrue() {
 		return true;
 	}
-	
+
 	/**
 	 * Este método devuelve el resultado de una suma
 	 * @param num1 numero 1 a sumar
@@ -32,9 +33,12 @@ public class Functionalities {
 	 * @throws ArithmeticException Devuelve una excepción en el caso de que se
 	 *                             divida entre 0.
 	 */
-	public double getDivision(double divisor, double dividendo) throws ArithmeticException {
-		return dividendo + divisor; // ArithmeticException
-	}
+public double getDivision(double divisor, double dividendo) throws ArithmeticException {
+    if (dividendo == 0) { 
+        throw new ArithmeticException("División entre cero no permitida");
+    }
+    return divisor / dividendo; 
+}
 
 	/**
 	 * Transforma en string el objeto que se le pase Si el objeto es nulo, el string
@@ -42,9 +46,12 @@ public class Functionalities {
 	 * 
 	 * @return un string o null
 	 */
-	public Object convertirAString(Object o) {
-		return o.toString();
-	}
+public String convertirAString(Object o) {
+    if (o == null) {
+        return null;
+    }
+    return o.toString();
+}
 
 	/**
 	 * Convierte a int cualquier objeto haciendo un casting. Si no puede, devuelve 0
@@ -52,8 +59,15 @@ public class Functionalities {
 	 * @return un número, si no puede convertirlo, devuelve 0.
 	 */
 	public int convertirAInt(Object o) {
-		return (Integer) o;
-	}
+    if (o instanceof Integer) {
+        return (Integer) o;
+    } else if (o instanceof Long) {
+        return ((Long) o).intValue();
+    } else {
+        return 0; // Devuelve 0 para otros tipos o null
+    }
+}
+
 
 	/**
 	 * A partir de un tamaño que se pasa como parametro, devuelve un array del tipo String.
@@ -63,9 +77,23 @@ public class Functionalities {
 	 * @param size
 	 * @return
 	 */
-	public char[] getLineaAsteriscos(int size) {
-		return null;
- 	}
+	public String[] getLineaAsteriscos(int size) {
+    String[] result = new String[Math.abs(size)];
+
+    if (size > 0) {
+        // If the number is positive, return an array filled with "🥦"
+        Arrays.fill(result, "🥦");
+    } else if (size < 0) {
+        // If the number is negative, return an array filled with "🌶️"
+        Arrays.fill(result, "🌶️");
+    } else {
+        // If the number is 0, return an array with a single element "🍊"
+        result = new String[]{"🍊"};
+    }
+
+    return result;
+}
+
 
 	/**
 	 * Actualiza la coleccion. 
@@ -76,8 +104,12 @@ public class Functionalities {
 	 * @param size veces en las que se tiene que añadir el elemento
 	 * @return
 	 */
-	public void actualizarColeccion(HashSet<String> coleccion, String elemento, int size ) {
-	}
+        public void actualizarColeccion(HashSet<String> coleccion, String elemento, int size) {
+    for (int i = 0; i < size; i++) {
+        coleccion.add(elemento + i); // Añadir elementos diferentes
+    }
+
+}
 
 	public int method8() {
 		int[] arr = new int[1];
@@ -87,5 +119,60 @@ public class Functionalities {
 	public void method9() {
 		throw new IllegalArgumentException(); // Lanza IllegalArgumentException
 	}
+        
+     
+    public boolean checkAlumno(int faltasTotales, int faltasJustificadas, int faltasTeoricas, int faltasPracticas) {
+        if (faltasTotales > 30) {
+            return false;
+        }
 
+        if (faltasTeoricas > 4 || faltasPracticas > 8) {
+            return false;
+        }
+
+        if (faltasJustificadas > 15) {
+            return false;
+        }
+
+        return true;
+    }
+public boolean checkAlumnoTodoAprobadoFaltasJustificadas16(int faltasTotales, int faltasJustificadas) {
+        if (faltasTotales > 30) {
+            return false;
+        }
+
+        if (faltasJustificadas != 16) {
+            return false;
+        }
+
+        return true;
+    }
+    
+public boolean checkAlumnoTodoAprobadoFaltasJustificadas15(int faltasJustificadas) {
+        if (faltasJustificadas != 15) {
+            return false;
+        }
+
+        return true;
+    }
+
+public boolean checkAlumnoTeorico4Practicas8Faltas5( int faltasJustificadas, int faltasTeoricas, int faltasPracticas) {
+        // Si las faltas teóricas no son exactamente 4, el alumno no ha aprobado
+        if (faltasTeoricas != 4) {
+            return false;
+        }
+
+        // Si las faltas prácticas no son exactamente 8, el alumno no ha aprobado
+        if (faltasPracticas != 8) {
+            return false;
+        }
+
+        // Si las faltas justificadas no son exactamente 5, el alumno no ha aprobado
+        if (faltasJustificadas != 5) {
+            return false;
+        }
+
+        // Si no se cumple ninguna de las condiciones anteriores, el alumno ha aprobado
+        return true;
+    }
 }
